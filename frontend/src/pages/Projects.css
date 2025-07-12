@@ -138,6 +138,94 @@
   }
 }
 
+/* ====== Mobile Phone Specific Styles ====== */
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 60px 0 0 0;
+  }
+  
+  .projects-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+  }
+  
+  .projects-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
+    max-width: 90%;
+    line-height: 1.5;
+  }
+  
+  .projects-grid {
+    padding: 0 1rem 1.5rem;
+    gap: 1rem;
+  }
+  
+  .project-card {
+    min-width: 240px;
+    max-width: 280px;
+  }
+  
+  .projects-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .projects-arrow.left {
+    left: 10px;
+  }
+  
+  .projects-arrow.right {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 50px 0 0 0;
+  }
+  
+  .projects-title {
+    font-size: 1.9rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
+  }
+  
+  .projects-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    max-width: 95%;
+    line-height: 1.4;
+  }
+  
+  .projects-grid {
+    padding: 0 0.8rem 1.2rem;
+    gap: 0.8rem;
+  }
+  
+  .project-card {
+    min-width: 200px;
+    max-width: 240px;
+  }
+  
+  .projects-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  
+  .projects-arrow.left {
+    left: 8px;
+  }
+  
+  .projects-arrow.right {
+    right: 8px;
+  }
+}
+
 /* ====== Light Theme Overrides ====== */
 
 .App.light-theme .projects-section {

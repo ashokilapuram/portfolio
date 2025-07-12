@@ -69,10 +69,7 @@ const skills = [
   },
 ];
 
-const CARD_WIDTH = 370; // max-width of .skill-card in px
-
 const Skills = ({ className = '' }) => {
-  const [showLevels, setShowLevels] = useState(false);
   const [modalSkill, setModalSkill] = useState(null);
   const gridRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -117,7 +114,7 @@ const Skills = ({ className = '' }) => {
           ref={gridRef}
         >
           {skills.map((skill, idx) => (
-            <SkillCard key={idx} {...skill} showLevel={showLevels} onMoreDetails={() => setModalSkill(skill)} />
+            <SkillCard key={idx} {...skill} showLevel={false} onMoreDetails={() => setModalSkill(skill)} />
           ))}
         </div>
         {canScrollRight && (

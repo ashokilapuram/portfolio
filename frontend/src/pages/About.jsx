@@ -81,8 +81,6 @@ const About = ({ className = '' }) => {
               >
                 Contact Me
               </button>
-              <button className="about-btn about-btn-icon" title="GitHub" aria-label="GitHub">🐙</button>
-              <button className="about-btn about-btn-icon" title="LinkedIn" aria-label="LinkedIn">💼</button>
             </div>
           </div>
         </div>

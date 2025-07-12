@@ -14,6 +14,7 @@ const SECTION_IDS = ['home', 'about', 'projects', 'skills', 'contact'];
 
 const Navbar = ({ show = true, theme = 'dark', onToggleTheme }) => {
   const [active, setActive] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
   const observerRef = useRef(null);
 
   useEffect(() => {
@@ -40,23 +41,39 @@ const Navbar = ({ show = true, theme = 'dark', onToggleTheme }) => {
     };
   }, []);
 
+  // Close menu on link click (mobile)
+  const handleLinkClick = () => setMenuOpen(false);
+
   return (
     <nav className={`navbar ${show ? 'navbar-drop' : 'navbar-hidden'}`}>
       <div className="navbar-content">
-        <div className="navbar-logo">AI</div>
-        <ul className="navbar-links">
+        <div className="navbar-logo-group">
+          <div className="navbar-logo">AI</div>
+          <div className="navbar-theme-toggle mobile" title="Toggle theme" onClick={onToggleTheme} style={{cursor: 'pointer'}}>
+            {theme === 'dark' ? (
+              <span role="img" aria-label="sun">☀️</span>
+            ) : (
+              <span role="img" aria-label="moon">🌙</span>
+            )}
+          </div>
+        </div>
+        <button className={`navbar-hamburger${menuOpen ? ' open' : ''}`} onClick={() => setMenuOpen(m => !m)} aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul className={`navbar-links${menuOpen ? ' open' : ''}`}>
           {NAV_LINKS.map(link => (
             <li key={link.href}>
               <a
                 href={link.href}
                 className={active === link.href.slice(1) ? 'active' : ''}
+                onClick={handleLinkClick}
               >
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
-        <div className="navbar-theme-toggle" title="Toggle theme" onClick={onToggleTheme} style={{cursor: 'pointer'}}>
+        <div className="navbar-theme-toggle desktop" title="Toggle theme" onClick={onToggleTheme} style={{cursor: 'pointer'}}>
           {theme === 'dark' ? (
             <span role="img" aria-label="sun">☀️</span>
           ) : (

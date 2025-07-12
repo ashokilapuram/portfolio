@@ -163,3 +163,149 @@
     min-width: 280px;
   }
 }
+
+/* ====== Mobile Phone Specific Styles ====== */
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 1.5rem 0.8rem;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .skills-title {
+    font-size: 2.2rem;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+  }
+  
+  .skills-subtitle {
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+    max-width: 90%;
+    line-height: 1.4;
+  }
+  
+  .skills-toggle-btn {
+    padding: 0.6rem 1.3rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .skills-slider-container {
+    padding: 1.5rem 0;
+  }
+  
+  .skills-grid.horizontal {
+    padding: 1.2rem 0.8rem 2rem 0.8rem;
+    gap: 0.8rem;
+  }
+  
+  .skill-card {
+    min-width: 260px;
+    max-width: 320px;
+    min-height: 200px;
+  }
+  
+  .skills-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.4rem;
+  }
+  
+  .skills-arrow.left {
+    left: -5px;
+  }
+  
+  .skills-arrow.right {
+    right: -5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 1.2rem 0.5rem;
+  }
+  
+  .skills-title {
+    font-size: 1.9rem;
+    margin: 0 0 1.2rem 0;
+  }
+  
+  .skills-subtitle {
+    font-size: 0.9rem;
+    margin: 0 0 0.8rem 0;
+    max-width: 95%;
+    line-height: 1.3;
+  }
+  
+  .skills-toggle-btn {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .skills-slider-container {
+    padding: 1.2rem 0;
+  }
+  
+  .skills-grid.horizontal {
+    padding: 1rem 0.5rem 1.8rem 0.5rem;
+    gap: 0.6rem;
+  }
+  
+  .skill-card {
+    min-width: 240px;
+    max-width: 300px;
+    min-height: 180px;
+  }
+  
+  .skills-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+  
+  .skills-arrow.left {
+    left: -3px;
+  }
+  
+  .skills-arrow.right {
+    right: -3px;
+  }
+}
+
+/* ====== Mobile Vertical Scroll Styles ====== */
+
+@media (max-width: 768px) {
+  .skills-grid.horizontal {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 60vh;
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+  }
+  
+  .skill-card {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .skills-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid.horizontal {
+    max-height: 55vh;
+    padding: 0.8rem 0.3rem;
+    gap: 0.8rem;
+  }
+  
+  .skill-card {
+    min-height: 160px;
+  }
+}
