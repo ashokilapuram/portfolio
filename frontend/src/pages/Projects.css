@@ -30,27 +30,7 @@
   max-width: 700px;
 }
 
-.projects-grid {
-  display: flex;
-  flex-direction: row;
-  gap: 2.2rem;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-  overflow-x: auto;
-  flex-wrap: nowrap;
-  padding-bottom: 1.5rem;
-  scroll-padding-left: 1rem;
-}
-
-.projects-grid::-webkit-scrollbar {
-  height: 8px;
-  background: transparent;
-}
-.projects-grid::-webkit-scrollbar-thumb {
-  background: #222b3a;
-  border-radius: 4px;
-}
+/* ====== Carousel Style ====== */
 
 .projects-slider-container {
   position: relative;
@@ -58,38 +38,77 @@
   max-width: 1200px;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
+.projects-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 2.2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 0 2rem 2rem;
+  scroll-padding-left: 2rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  align-items: stretch;
+}
+
+.projects-grid::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Individual cards should snap nicely */
+.project-card {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
+  min-width: 320px;
+  max-width: 370px;
+}
+
+/* ====== Arrow Styles ====== */
+
 .projects-arrow {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
-  background: #232d3a;
+  z-index: 1000;
+  background: linear-gradient(135deg, #232d3a 0%, #1a202c 100%);
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.7rem;
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px 0 #4f8cff22;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  opacity: 0.85;
-  transition: background 0.2s, opacity 0.2s;
+  opacity: 0.9;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 }
-.projects-arrow.left {
-  left: -50px;
-}
-.projects-arrow.right {
-  right: -50px;
-}
+
 .projects-arrow:hover {
-  background: #4f8cff;
+  background: linear-gradient(135deg, #4f8cff 0%, #3b82f6 100%);
   opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px 0 rgba(79, 140, 255, 0.4);
 }
+
+.projects-arrow.left {
+  left: 40px;
+}
+
+.projects-arrow.right {
+  right: 40px;
+}
+
+/* ====== Responsive Adjustments ====== */
 
 @media (max-width: 1100px) {
   .projects-grid {
@@ -99,20 +118,27 @@
 
 @media (max-width: 900px) {
   .projects-grid {
-    gap: 1.2rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    gap: 1.2rem;
   }
   .projects-slider-container {
     max-width: 98vw;
   }
   .projects-arrow.left {
-    left: -10px;
+    left: 20px;
   }
   .projects-arrow.right {
-    right: -10px;
+    right: 20px;
+  }
+  .projects-arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
   }
 }
+
+/* ====== Light Theme Overrides ====== */
 
 .App.light-theme .projects-section {
   background: #f6f8fa;
@@ -127,4 +153,4 @@
 
 .App.light-theme .projects-subtitle {
   color: #6b7280;
-} 
+}
